@@ -6,11 +6,18 @@ class Player {
     World.add(world, this.body);
     this.w = w;
     this.h = h;
+    this.sprite = null;
   }
   setup(url) {
     const pos = this.body.position;
     this.sprite = createSprite(pos.x, pos.y, this.w, this.h);
-    this.sprite.addAnimation("floating", url);
+    this.sprite.setCollider("circle", 0, 0, this.w - 10);
+    this.sprite.addAnimation("player", url);
+    this.sprite.addAnimation(
+      "explosion",
+      "img/Explosions_kenney/regularExplosion00.png",
+      "img/Explosions_kenney/regularExplosion08.png"
+    );
   }
   draw() {
     const pos = this.body.position;
@@ -18,6 +25,14 @@ class Player {
     this.sprite.position.x = pos.x;
     this.sprite.position.y = pos.y;
     drawSprites();
+    if (this.sprite.collide(enemiesGroup)) {
+      this.sprite.changeAnimation("explosion");
+      setTimeout(() => {
+        this.sprite.remove();
+        World.remove(world, this.body);
+        noLoop();
+      }, 500);
+    }
   }
 
   right() {

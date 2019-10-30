@@ -6,12 +6,18 @@ const {
   Body,
   Constraint,
   Mouse,
-  MouseConstraint,
-  Vector,
-  Composites,
-  Composite,
-  Events
+  MouseConstraint
 } = Matter;
 // DIMENSIONS
 const WIDTH = 1000;
 const HEIGHT = 700;
+const playerWIDTH = 40;
+const playerHEIGHT = 44;
+const enemyWIDTH = 116;
+const enemyHEIGHT = 44;
+const asteroidRADIUS = 16;
+
+gameOver = function() {
+  console.log("game over");
+  document.getElementById("game-over").style.display = "block";
+};
