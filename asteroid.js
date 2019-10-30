@@ -18,8 +18,12 @@ class Asteroid {
     this.sprite.position.y = pos.y;
     drawSprites();
     if (this.sprite.collide(player.sprite)) {
+      const index = asteroids.findIndex(el => el === this);
+      asteroids.splice(index, 1);
       this.sprite.remove();
       World.remove(world, this.body);
+      baseScorePlayer1 += 100;
+      scorePlayer1.innerText = baseScorePlayer1;
     }
   }
 }

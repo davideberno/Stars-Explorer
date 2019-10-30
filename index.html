@@ -6,19 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Space Explorer</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
     <script src="lib/p5.min.js"></script>
     <script src="lib/p5.play.js"></script>
     <script src="lib/matter.min.js"></script>
   </head>
   <body>
-    <div id="start-page"></div>
+    <div id="game-over">
+      <h1>GAME OVER</h1>
+    </div>
+    <div id="start-page">
+      <img id="logo" src="img/logo.png" alt="start-page-logo" />
+      <p id="player-selection">
+        Press 1 for single player <br />
+        Press 2 for multiplayer
+      </p>
+    </div>
+
+    <div id="canvas">
+      <div id="score-1" class="score">
+        <div>PLAYER 1 <br />SCORE</div>
+        <div id="scorePlayer1">0</div>
+      </div>
+      <div id="score-2" class="score">
+        <div>PLAYER 2 <br />SCORE</div>
+        <div id="scorePlayer2">0</div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
     <script src="background.js"></script>
     <script src="asteroid.js"></script>
     <script src="player.js"></script>
     <script src="enemy.js"></script>
     <script src="wall.js"></script>
+    <script src="player2.js"></script>
+
     <script src="const.js"></script>
-    <script src="main.js"></script>
   </body>
 </html>

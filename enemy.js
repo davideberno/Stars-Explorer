@@ -1,12 +1,13 @@
 class Enemy {
   constructor(x, y, w, h) {
     this.body = Bodies.rectangle(x, y, w, h, {
-      isStatic: true
+      //isStatic: true
+      density: 0.5
     });
     World.add(world, this.body);
     this.w = w;
     this.h = h;
-    this.direction = 1;
+    this.direction = Math.round(random(1, 4));
     this.sprite = null;
   }
   setup(url) {
@@ -39,13 +40,13 @@ class Enemy {
       this.direction = 2;
     }
     if (pos.y >= 30 && pos.y <= 670 && this.direction === 3) {
-      Body.translate(this.body, { x: 0, y: +2 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: +0.2 });
     } else if (pos.y >= 30 && pos.y <= 670 && this.direction === 1) {
-      Body.translate(this.body, { x: 0, y: -2 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: -0.2 });
     } else if (pos.x >= 60 && pos.x <= 934 && this.direction === 2) {
-      Body.translate(this.body, { x: -2, y: 0 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: -0.2, y: 0 });
     } else if (pos.x >= 60 && pos.x <= 934 && this.direction === 4) {
-      Body.translate(this.body, { x: +2, y: 0 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0.2, y: 0 });
     }
   }
 }

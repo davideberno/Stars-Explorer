@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "zorque";
+  src: url("zorque-webfont.woff2") format("woff2"),
+    url("zorque-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "zorque";
+}
+
+#canvas {
+  width: 99%;
+  height: 700px;
+  margin: auto;
+  position: relative;
+}
+
+.score {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  color: white;
+  font-size: 30px;
+}
+
+#score-1 {
+  top: 50px;
+  left: 50px;
+  text-align: center;
+}
+
+#score-2 {
+  top: 50px;
+  right: 50px;
+  text-align: center;
+}
+
+#start-page {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+#logo {
+  width: 60%;
+  height: auto;
+}
+
+#game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 700px;
+  padding-top: 350;
+  background-image: url("../img/T_17-01.jpg");
+  background-size: cover;
+}
+
+#game-over h1 {
+  font-size: 80px;
+}

@@ -25,30 +25,47 @@ class Player {
     this.sprite.position.x = pos.x;
     this.sprite.position.y = pos.y;
     drawSprites();
+    this.keyPressed();
     if (this.sprite.collide(enemiesGroup)) {
       this.sprite.changeAnimation("explosion");
       setTimeout(() => {
         this.sprite.remove();
         World.remove(world, this.body);
-        noLoop();
+        startGame = false;
+        document.getElementById("canvas").style.display = "none";
+        document.getElementById("game-over").style.display = "flex";
       }, 500);
+      setTimeout(() => {
+        location.reload();
+      }, 3000);
     }
   }
 
   right() {
     const pos = this.body.position;
-    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0.01, y: 0 });
+    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0.03, y: 0 });
   }
   left() {
     const pos = this.body.position;
-    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: -0.01, y: 0 });
+    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: -0.03, y: 0 });
   }
   jump() {
     const pos = this.body.position;
-    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: -0.01 });
+    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: -0.03 });
   }
   down() {
     const pos = this.body.position;
-    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: +0.01 });
+    Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: +0.03 });
+  }
+  keyPressed() {
+    if (keyCode === 39) {
+      player.right();
+    } else if (keyCode === 37) {
+      player.left();
+    } else if (keyCode === 38) {
+      player.jump();
+    } else if (keyCode === 40) {
+      player.down();
+    }
   }
 }
