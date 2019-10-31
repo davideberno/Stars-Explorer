@@ -3,14 +3,10 @@ class Asteroid {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.sprite = null;
-    this.sound;
+    this.sprite;
     this.body;
   }
-  preload() {
-    this.sound = loadSound("assets/sounds/asteroidColl1.wav");
-    this.sound.setVolume(0.05);
-  }
+
   setup(url) {
     this.body = Bodies.circle(this.x, this.y, this.r);
     World.add(world, this.body);
@@ -33,7 +29,7 @@ class Asteroid {
       World.remove(world, this.body);
       baseScorePlayer1 += 100;
       scorePlayer1.innerText = baseScorePlayer1;
-      this.sound.play();
+      asteroidSound.play();
     }
   }
 }

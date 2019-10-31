@@ -14,6 +14,7 @@ let HEIGHT;
 let WIDTH;
 let percentWIDTH;
 let music;
+let asteroidSound;
 let newEnemySound;
 let movSpaceship;
 let asteroidsCounter = 0;
@@ -37,6 +38,8 @@ function preload() {
   music.setVolume(0.1);
   newEnemySound = loadSound("assets/sounds/newEnemy.wav");
   movSpaceship = loadSound("assets/sounds/spaceship.mp3");
+  asteroidSound = loadSound("assets/sounds/asteroidColl1.wav");
+  asteroidSound.setVolume(0.05);
   percentWIDTH = windowWidth / 100;
   WIDTH = windowWidth - percentWIDTH;
   HEIGHT = 700;
@@ -60,10 +63,6 @@ function preload() {
       new Asteroid(random(50, 950), random(30, 600), asteroidRADIUS)
     );
   }
-
-  asteroids.forEach(asteroid => {
-    asteroid.preload();
-  });
 
   for (let i = 0; i < 4; i++) {
     enemies.push(
@@ -121,7 +120,7 @@ function setup() {
       } else {
         asteroidsCounter = 0;
       }
-      asteroids[asteroids.length - 1].preload();
+      //asteroids[asteroids.length - 1].preload();
     }
   }, 3000);
 
