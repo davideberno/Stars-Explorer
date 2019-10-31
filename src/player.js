@@ -7,7 +7,6 @@ class Player {
     this.sprite;
     this.body;
     this.explosion;
-    this.movSound;
     this.isMovSoundPlay = false;
     this.isAlive = true;
   }

@@ -15,6 +15,7 @@ let WIDTH;
 let percentWIDTH;
 let music;
 let newEnemySound;
+let movSpaceship;
 let asteroidsCounter = 0;
 const enemies = [];
 const asteroids = [];
@@ -34,6 +35,8 @@ document.onkeypress = () => {
 function preload() {
   music = loadSound("assets/sounds/Interplanetary Odyssey.ogg");
   music.setVolume(0.1);
+  newEnemySound = loadSound("assets/sounds/newEnemy.wav");
+  movSpaceship = loadSound("assets/sounds/spaceship.mp3");
   percentWIDTH = windowWidth / 100;
   WIDTH = windowWidth - percentWIDTH;
   HEIGHT = 700;
@@ -75,8 +78,6 @@ function preload() {
   planetA = new Planet(250, 200, 70);
 
   planetB = new Planet(WIDTH - 250, 500, 70);
-
-  newEnemySound = loadSound("assets/sounds/newEnemy.wav");
 }
 
 function setup() {
