@@ -4,23 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Space Explorer</title>
+    <title>Stars Explorer</title>
 
     <link rel="stylesheet" type="text/css" href="style/style.css" />
-    <script src="lib/p5.min.js"></script>
-    <script src="lib/p5.play.js"></script>
-    <script src="lib/matter.min.js"></script>
+    <script src="assets/lib/p5.min.js"></script>
+    <script src="assets/lib/p5.play.js"></script>
+    <script src="assets/lib/p5.sound.min.js"></script>
+    <script src="assets/lib/matter.min.js"></script>
   </head>
   <body>
     <div id="game-over">
       <h1>GAME OVER</h1>
     </div>
     <div id="start-page">
-      <img id="logo" src="img/logo.png" alt="start-page-logo" />
-      <p id="player-selection">
-        Press 1 for single player <br />
-        Press 2 for multiplayer
+      <img id="logo" src="assets/img/logo.png" alt="start-page-logo" />
+      <p>
+        Welcome pilot!! Your mission is to collect resources for Mother Earth.
+        <br />
+        Try to catch as many asteroids as possible. But be carefull!! The <br />
+        Kryptonians are looking for you, stay away from them!!
       </p>
+      <div id="player-selection">Press s to start the game</div>
     </div>
 
     <div id="canvas">
@@ -34,14 +38,14 @@
       </div>
     </div>
 
-    <script src="main.js"></script>
-    <script src="background.js"></script>
-    <script src="asteroid.js"></script>
-    <script src="player.js"></script>
-    <script src="enemy.js"></script>
-    <script src="wall.js"></script>
-    <script src="player2.js"></script>
-
-    <script src="const.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/background.js"></script>
+    <script src="src/asteroid.js"></script>
+    <script src="src/planet.js"></script>
+    <script src="src/player.js"></script>
+    <script src="src/enemy.js"></script>
+    <script src="src/wall.js"></script>
+    <script src="src/player2.js"></script>
+    <script src="src/const.js"></script>
   </body>
 </html>

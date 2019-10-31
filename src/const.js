@@ -16,8 +16,5 @@ const enemyWIDTH = 116;
 const enemyHEIGHT = 44;
 const asteroidRADIUS = 16;
 const scorePlayer1 = document.getElementById("scorePlayer1");
+const scorePlayer2 = document.getElementById("scorePlayer2");
 let baseScorePlayer1 = 0;
-gameOver = function() {
-  console.log("game over");
-  document.getElementById("game-over").style.display = "block";
-};
