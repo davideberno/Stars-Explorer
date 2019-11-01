@@ -29,7 +29,12 @@ class Game {
 
     this.planetB = new Planet(WIDTH - 250, 500, 70);
 
-    this.player = new Player(WIDTH / 2, HEIGHT - 20, playerWIDTH, playerHEIGHT);
+    this.player = new Player(
+      WIDTH - 200,
+      HEIGHT - 20,
+      playerWIDTH,
+      playerHEIGHT
+    );
 
     for (let i = 0; i < 8; i++) {
       this.asteroids.push(

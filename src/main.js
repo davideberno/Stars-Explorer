@@ -32,7 +32,7 @@ document.onkeypress = () => {
       "Press s to start the game";
   } else if (keyCode === 50) {
     player2IsOn = true;
-    player2 = new Player2(WIDTH / 2, HEIGHT - 20, playerWIDTH, playerHEIGHT);
+    player2 = new Player2(200, HEIGHT - 20, playerWIDTH, playerHEIGHT);
     player2.setup("assets/img/spaceship.png");
     document.getElementById("score-2").style.display = "block";
     document.getElementById("player-selection").innerHTML =

@@ -33,13 +33,13 @@
 
 #score-1 {
   top: 50px;
-  left: 50px;
+  right: 50px;
   text-align: center;
 }
 
 #score-2 {
   top: 50px;
-  right: 50px;
+  left: 50px;
   text-align: center;
 }
 
