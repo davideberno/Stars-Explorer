@@ -16,7 +16,6 @@ let percentWIDTH;
 let music;
 let asteroidSound;
 let newEnemySound;
-let movSpaceship;
 let asteroidsCounter = 0;
 const enemies = [];
 const asteroids = [];
@@ -24,7 +23,6 @@ let gameIsOn = false;
 let player2On = false;
 
 document.getElementById("game-over").style.display = "none";
-document.getElementById("score-2").style.display = "none";
 
 document.onkeypress = () => {
   if (keyCode === 83) {
@@ -37,7 +35,6 @@ function preload() {
   music = loadSound("assets/sounds/Interplanetary Odyssey.ogg");
   music.setVolume(0.1);
   newEnemySound = loadSound("assets/sounds/newEnemy.wav");
-  movSpaceship = loadSound("assets/sounds/spaceship.mp3");
   asteroidSound = loadSound("assets/sounds/asteroidColl1.wav");
   asteroidSound.setVolume(0.05);
   percentWIDTH = windowWidth / 100;
@@ -60,13 +57,18 @@ function preload() {
 
   for (let i = 0; i < 8; i++) {
     asteroids.push(
-      new Asteroid(random(50, 950), random(30, 600), asteroidRADIUS)
+      new Asteroid(random(50, WIDTH - 50), random(30, 600), asteroidRADIUS)
     );
   }
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 3; i++) {
     enemies.push(
-      new Enemy(random(60, 940), random(40, 400), enemyWIDTH, enemyHEIGHT)
+      new Enemy(
+        random(60, WIDTH - 60),
+        random(40, 400),
+        enemyWIDTH,
+        enemyHEIGHT
+      )
     );
   }
 
@@ -93,10 +95,6 @@ function setup() {
   planetA.setup("assets/img/planetB.png");
   planetB.setup("assets/img/planetB.png");
   player.setup("assets/img/spaceship.png");
-  // if (player2On) {
-  //   player2 = new Player2(WIDTH / 2, 680, playerWIDTH, playerHEIGHT);
-  //   player2.setup("img/spaceship.png");
-  // }
 
   asteroids.forEach((asteroid, index) => {
     asteroid.setup(`assets/img/Asteroid${index % 8}.png`);
@@ -110,7 +108,7 @@ function setup() {
   setInterval(() => {
     if (gameIsOn) {
       asteroids.push(
-        new Asteroid(random(50, 950), random(30, 600), asteroidRADIUS)
+        new Asteroid(random(50, WIDTH - 50), random(30, 600), asteroidRADIUS)
       );
       asteroids[asteroids.length - 1].setup(
         `assets/img/Asteroid${asteroidsCounter}.png`
@@ -120,14 +118,18 @@ function setup() {
       } else {
         asteroidsCounter = 0;
       }
-      //asteroids[asteroids.length - 1].preload();
     }
   }, 3000);
 
   setInterval(() => {
-    if (gameIsOn && enemies.length < 10) {
+    if (gameIsOn && enemies.length < 8) {
       enemies.push(
-        new Enemy(random(60, 940), random(40, 400), enemyWIDTH, enemyHEIGHT)
+        new Enemy(
+          random(60, WIDTH - 60),
+          random(40, 400),
+          enemyWIDTH,
+          enemyHEIGHT
+        )
       );
       enemies[enemies.length - 1].setup(`assets/img/enemy1.png`);
       enemiesGroup.add(enemies[enemies.length - 1].sprite);
@@ -138,7 +140,7 @@ function setup() {
   setInterval(() => {
     world.gravity.y = random(-0.05, 0.05);
     world.gravity.x = random(-0.05, 0.05);
-  }, 500);
+  }, 400);
 }
 
 function draw() {
@@ -152,9 +154,6 @@ function draw() {
     player.draw();
     planetA.draw();
     planetB.draw();
-    // if (player2On) {
-    //   player2.draw();
-    // }
     asteroids.forEach(asteroid => {
       asteroid.draw();
     });
@@ -163,13 +162,3 @@ function draw() {
     });
   }
 }
-
-// if (keyCode === 49) {
-//   document.getElementById("player-selection").innerHTML =
-//     "Press s to start the game";
-//   } else if (keyCode === 50) {
-//     player2On = true;
-//     document.getElementById("score-2").style.display = "block";
-//     document.getElementById("player-selection").innerHTML =
-//       "Press s to start the game";
-// }

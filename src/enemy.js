@@ -10,7 +10,7 @@ class Enemy {
   }
   setup(url) {
     this.body = Bodies.rectangle(this.x, this.y, this.w, this.h, {
-      density: 0.8
+      density: 0.5
     });
     World.add(world, this.body);
     this.sprite = createSprite(this.x, this.y, this.w, this.h);
@@ -43,13 +43,13 @@ class Enemy {
       this.direction = 2;
     }
     if (pos.y >= 30 && pos.y <= HEIGHT - 30 && this.direction === 3) {
-      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: +0.2 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: +0.3 });
     } else if (pos.y >= 30 && pos.y <= HEIGHT - 30 && this.direction === 1) {
-      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: -0.2 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: -0.3 });
     } else if (pos.x >= 60 && pos.x <= WIDTH - 66 && this.direction === 2) {
-      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: -0.2, y: 0 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: -0.3, y: 0 });
     } else if (pos.x >= 60 && pos.x <= WIDTH - 66 && this.direction === 4) {
-      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0.2, y: 0 });
+      Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0.3, y: 0 });
     }
   }
 }
