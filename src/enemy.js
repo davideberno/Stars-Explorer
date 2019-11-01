@@ -19,7 +19,7 @@ class Enemy {
 
     setInterval(() => {
       this.direction = Math.round(random(1, 4));
-    }, 5000);
+    }, 7000);
   }
   draw() {
     const pos = this.body.position;

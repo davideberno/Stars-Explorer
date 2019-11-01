@@ -1,4 +1,4 @@
-class Player {
+class Player2 {
   constructor(x, y, w, h) {
     this.x = x;
     this.y = y;
@@ -39,21 +39,14 @@ class Player {
         this.sprite.remove();
         World.remove(world, this.body);
         this.isAlive = false;
-        if (!player2) {
-          gameIsOn = false;
-          document.getElementById("canvas").style.display = "none";
-          document.getElementById("game-over").style.display = "flex";
-        } else if (player2.isAlive === false) {
+        if (game.player.isAlive === false) {
+          console.log("!!!!!!!!!!!!");
           gameIsOn = false;
           document.getElementById("canvas").style.display = "none";
           document.getElementById("game-over").style.display = "flex";
         }
       }, 500);
-      if (!player2) {
-        setTimeout(() => {
-          location.reload();
-        }, 3000);
-      } else if (player2.isAlive === false) {
+      if (game.player.isAlive === false) {
         setTimeout(() => {
           location.reload();
         }, 3000);
@@ -78,14 +71,14 @@ class Player {
     Body.applyForce(this.body, { x: pos.x, y: pos.y }, { x: 0, y: +0.03 });
   }
   keyPressed() {
-    if (keyCode === 39) {
-      game.player.right();
-    } else if (keyCode === 37) {
-      game.player.left();
-    } else if (keyCode === 38) {
-      game.player.jump();
-    } else if (keyCode === 40) {
-      game.player.down();
+    if (keyCode === 68) {
+      player2.right();
+    } else if (keyCode === 65) {
+      player2.left();
+    } else if (keyCode === 87) {
+      player2.jump();
+    } else if (keyCode === 83) {
+      player2.down();
     }
   }
 }

@@ -16,4 +16,6 @@ const enemyWIDTH = 116;
 const enemyHEIGHT = 44;
 const asteroidRADIUS = 16;
 const scorePlayer1 = document.getElementById("scorePlayer1");
-let baseScorePlayer1 = 0;
+const scorePlayer2 = document.getElementById("scorePlayer2");
+let valueScorePlayer1 = 0;
+let valueScorePlayer2 = 0;

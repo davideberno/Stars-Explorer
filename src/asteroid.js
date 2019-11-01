@@ -22,14 +22,25 @@ class Asteroid {
     this.sprite.position.y = pos.y;
     pop();
     drawSprites();
-    if (this.sprite.collide(player.sprite)) {
-      const index = asteroids.findIndex(el => el === this);
-      asteroids.splice(index, 1);
+    if (this.sprite.collide(game.player.sprite)) {
+      const index1 = game.asteroids.findIndex(el => el === this);
+      game.asteroids.splice(index1, 1);
       this.sprite.remove();
       World.remove(world, this.body);
-      baseScorePlayer1 += 100;
-      scorePlayer1.innerText = baseScorePlayer1;
+      valueScorePlayer1 += 100;
+      scorePlayer1.innerText = valueScorePlayer1;
       asteroidSound.play();
+    }
+    if (player2IsOn) {
+      if (this.sprite.collide(player2.sprite)) {
+        const index2 = game.asteroids.findIndex(el => el === this);
+        game.asteroids.splice(index2, 1);
+        this.sprite.remove();
+        World.remove(world, this.body);
+        valueScorePlayer2 += 100;
+        scorePlayer2.innerText = valueScorePlayer2;
+        asteroidSound.play();
+      }
     }
   }
 }
